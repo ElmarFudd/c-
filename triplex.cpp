@@ -4,14 +4,17 @@
 void PrintIntroduction(int Difficulty)
 {
     // print story to terminal
-    std::cout << "\n\nThe world is on the brink of apocalypse.\n";
-    std::cout << "You must stop it.\n";
-    std::cout << "Hack into the Nexus of Self Righteous Behavior's core; reverse the flow and implode the system!\n";
-    std::cout << "You will need to bypass the many walls of security blocking you.\n";
-    std::cout << "Take your time. Be patient. Think clearly.\n";
-    std::cout << "If you fail, the Nexus will explode and radiate outwards into all of humanity.\n";
-    std::cout << "Only you can save us.\n\n";
+    if(Difficulty < 2)
+    {
+    std::cout << "\n\nThis nexus contains six walls of security.\n";
+    std::cout << "Can you bypass them?\n";
+    std::cout << "Each wall contains three hidden numbers that is the code.\n";
+    std::cout << "The code will become more difficult as you delve deeper into nexus.\n";
+    std::cout << "Please input the code with spaces between each integer or on separate lines in order for them to be read properly by nexus.\n";
+    std::cout << "If you fail, nexus will freeze your soul within it's confines for all eternity.\n";
+    std::cout << "Good luck.\n\n";
     std::cout << "Level  " << Difficulty <<std::endl;
+    }
 }
 bool PlayGame(int Difficulty)
 {
@@ -40,12 +43,13 @@ bool PlayGame(int Difficulty)
     // print win/loss messages
     if(GuessSum == CodeSum && GuessProduct == CodeProduct)
     {
-        std::cout << "\nYOU are WRONG. ABORT! ABORT!\n";
+        std::cout << "\nSecurity Wall Level " << Difficulty;
+        std::cout << " Bypass\n";
         return true;
     }
     else
     {
-        std::cout << "\nI am RIGHT! YOU are LOST...\n";
+        std::cout << "\nYOU are WRONG. ABORT! ABORT!\n";
         return false;
     }
 }
